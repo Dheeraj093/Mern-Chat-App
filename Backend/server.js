@@ -14,7 +14,7 @@ const { socket } = require("socket.io");
 
 dotenv.config();                   
 
-connectDB();
+
 const app = express();
 
 app.use(express.json()); //to accept json data
@@ -38,7 +38,18 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000
 
-const server = app.listen(PORT, console.log(`Server Started on port ${PORT}`));
+// const server = app.listen(PORT, console.log(`Server Started on port ${PORT}`));
+
+const server = app.listen(PORT, async (req, res) => {
+    try {
+        await connectDB();
+        console.log('connected');
+    }
+    catch (err) {
+        console.log(err);
+    }
+})
+
 
 const io = require("socket.io")(server, {
     pingTimeout: 60000,
