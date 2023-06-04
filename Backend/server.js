@@ -43,7 +43,7 @@ const server = app.listen(PORT, console.log(`Server Started on port ${PORT}`));
 const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
-        origin: "https://mern-chat-app-54ny-git-master-dheeraj093.vercel.app",
+        origin: "http://localhost:3000",
     },
 });
 
