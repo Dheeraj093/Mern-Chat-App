@@ -7,9 +7,9 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "start": "node server.js",
-        "dev": "node server.js",
-        "build":"node server.js"
+        "start": "node src/server.js",
+        "dev": "node src/server.js",
+        "build":"node src/server.js"
     },
     "author": "Dheeraj",
     "license": "ISC",
