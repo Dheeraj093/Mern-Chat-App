@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
 
-const userSchema = new mongoose.Schema({
+const userSchema = mongoose.Schema({
     name: { type: String, require: true },
     email: { type: String, require: true },
     password: { type: String, require: true },
@@ -10,8 +10,7 @@ const userSchema = new mongoose.Schema({
         default: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
     },
 }, {
-    timestamps: true,
-    versionKey:false
+    timestamps: true
 });
 
 userSchema.methods.matchPassword = async function(enteredPassword) {
@@ -28,5 +27,5 @@ userSchema.pre('save', async function(next) {
 
 
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema, 'user');
 module.exports = User;

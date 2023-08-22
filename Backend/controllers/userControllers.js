@@ -10,13 +10,13 @@ const registerUser = asyncHandler(async(req, res) => {
     // console.log("api hit");
     if (!name || !email || !password) {
 
-        return res.status(400).json({ message: 'All filed are required' });
+        return res.status(400).json({ message: 'all filed are required' });
     }
 
     const userExists = await User.findOne({ email });
     if (userExists) {
 
-        return res.status(400).json({ message: 'User already exists' });
+        return res.status(400).json({ message: 'user already exists' });
     }
 
     const user = await User.create({
