@@ -40,7 +40,7 @@ if(process.env.NODE_ENV==='production'){
         res.sendFile(path.resolve(__dirname1,"frontend","build","index.html"));
     })
 }else{
-        res.send("API is Running Successfully");
+        // res.send("API is Running Successfully");
     
 }
 
